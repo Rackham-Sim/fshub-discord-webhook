@@ -22,21 +22,6 @@ add_action('admin_init', function() {
 function fshub_va_plugin_install() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'fshub_logs';
-    
-    //Chgck if table already exists, continue if not.
-    $table_check = $table_name->prepare(
-        "SHOW TABLES LIKE %s",
-        $table_name
-    );
-
-    $table_check_result = $table_name->get_var($table_check);
-    return ( $table_check_result === $table_name );
-
-    if ( tablealreadyexists($table_name)) { 
-        break; //All good, let's continue with Installation
-    } else {
-        //Display Modal here
-    }
 
     $charset_collate = $wpdb->get_charset_collate();
     
