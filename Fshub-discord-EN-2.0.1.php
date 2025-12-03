@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: FSHub → Discord Webhook
- * Description: Receives FSHub webhooks and sends them to Discord.
+ * Plugin Name: FsHub → Discord Webhook
+ * Description: Receives FsHub webhooks and sends them to Discord.
  * Version: 2.0.1
  * Author: Rackham
  */
@@ -22,10 +22,10 @@ add_action('admin_init', function() {
 function fshub_va_plugin_install() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'fshub_logs';
-    
+
     $charset_collate = $wpdb->get_charset_collate();
     
-    $sql = "CREATE TABLE $table_name (
+    $sql = "CREATE TABLE IF NOT EXISTS $table_name (
         id bigint(20) NOT NULL AUTO_INCREMENT,
         timestamp datetime NOT NULL,
         type varchar(50) NOT NULL,
@@ -55,7 +55,7 @@ function log_event($type, $status, $message, $payload_id = '') {
 }
 
 
-class FSHub_Discord_Webhook {
+class FsHub_Discord_Webhook {
 
 	private function get_webhook_url() {
 		return get_option('fshub_discord_webhook_url');
@@ -220,10 +220,10 @@ class FSHub_Discord_Webhook {
 			
 			<hr>
 			
-			<h2>Webhook to configure in FSHub</h2>
+			<h2>Webhook to configure in FsHub</h2>
 
 			<div style="background:#fff;padding:15px;border-left:4px solid #0073aa;margin-bottom:20px;">
-				<p><strong>URL to use in FSHub:</strong></p>
+				<p><strong>URL to use in FsHub:</strong></p>
 
 				<?php 
 					$fshub_webhook_url = home_url('/wp-json/fshub/v1/webhook');
@@ -668,7 +668,7 @@ private function format_departure($d) {
             'description' => '',
             'color'       => 0x1d9bf0,
             'fields'      => $fields,
-            'footer'      => [ 'text' => 'FSHub • flight.departed' ],
+            'footer'      => [ 'text' => 'FsHub • flight.departed' ],
         ]]
     ];
 }
@@ -889,7 +889,7 @@ private function format_flight_report($d) {
             'color'  => 0x3aa655,
             'fields' => $fields,
             'footer' => [
-                'text' => 'FSHub • flight.completed'
+                'text' => 'FsHub • flight.completed'
             ],
         ]]
     ];
@@ -961,7 +961,7 @@ private function format_airline_achievement($d) {
             'color'  => 0xffcc00,
             'fields' => $fields,
             'footer' => [
-                'text' => 'FSHub • airline.achievement'
+                'text' => 'FsHub • airline.achievement'
             ],
         ]]
     ];
@@ -1019,7 +1019,7 @@ private function format_screenshot($d) {
         'title'  => '📸 New screenshots have been uploaded',
         'color'  => 0x87ceeb,
         'fields' => $fields,
-        'footer' => [ 'text' => 'FSHub • Screenshot' ],
+        'footer' => [ 'text' => 'FsHub • Screenshot' ],
     ];
 
     if (!empty($s['screenshot_url'])) {
@@ -1033,4 +1033,4 @@ private function format_screenshot($d) {
 
 }
 
-	new FSHub_Discord_Webhook();
+	new FsHub_Discord_Webhook();

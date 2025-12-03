@@ -1,12 +1,12 @@
-# 📦 FSHub → Discord Webhook (WordPress Plugin)
+# 📦 FsHub → Discord Webhook (WordPress Plugin)
 
-A WordPress plugin that receives **FSHub webhook events** and sends **Discord embed notifications**.  
-Perfect for Virtual Airlines and FSHub pilots who want live flight updates.
+A WordPress plugin that receives **FsHub webhook events** and sends **Discord embed notifications**.  
+Perfect for Virtual Airlines and FsHub pilots who want live flight updates.
 
 ---
 
 ## ✨ Features
-- Supports FSHub events:
+- Supports FsHub events:
   - `flight.departed`
   - `flight.completed`
   - `airline.achievement`
@@ -17,7 +17,7 @@ Perfect for Virtual Airlines and FSHub pilots who want live flight updates.
   - Log tracking  
   - Test notifications  
   - Discord webhook settings  
-  - Auto-generated FSHub webhook URL  
+  - Auto-generated FsHub webhook URL  
 - All webhook activity logged in the database
 
 ---
@@ -48,11 +48,11 @@ Paste your Discord webhook URL and save.
 
 ---
 
-### **2. Configure FSHub webhook**
-In the same page, the plugin shows the exact webhook URL to paste in FSHub:
+### **2. Configure FsHub webhook**
+In the same page, the plugin shows the exact webhook URL to paste in FsHub:
 ``https://your-site.com/wp-json/fshub/v1/webhook``
 
-Copy this URL into your FSHub webhook settings.  
+Copy this URL into your FsHub webhook settings.  
 Your system is now ready.
 
 ---
@@ -85,9 +85,9 @@ Useful for debugging and monitoring.
 
 ## 📄 Requirements
 - WordPress 5.0+
-- PHP 7.4+
+- PHP 8.2+
 - A Discord webhook URL
-- An FSHub account or Virtual Airline with webhook access
+- An FsHub account or Virtual Airline with webhook access
 
 ---
 
@@ -99,4 +99,3 @@ If you'd like new event types or features, feel free to open an issue.
 
 ## 📜 License
 MIT License — Free to use, modify and distribute.
-
